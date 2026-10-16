@@ -1,0 +1,39 @@
+{
+  "mqtt": {
+    "broker": "broker.emqx.io",
+    "port": 1883,
+    "keepalive": 60,
+    "client_id_prefix": "AirControl_PipeGen_",
+    "topics": {
+      "command": "aircontrol/commands/gesture",
+      "status": "aircontrol/device/status",
+      "telemetry": "aircontrol/device/telemetry"
+    }
+  },
+  "camera": {
+    "device_index": 0,
+    "frame_width": 640,
+    "frame_height": 480,
+    "fps": 30,
+    "mock_mode": false
+  },
+  "gesture": {
+    "confidence_threshold": 0.70,
+    "consecutive_frames_required": 5,
+    "cooldown_seconds": 1.0,
+    "supported_gestures": [
+      "OPEN_HAND",
+      "FIST",
+      "THUMBS_UP",
+      "THUMBS_DOWN",
+      "VICTORY"
+    ]
+  },
+  "actuator_mappings": {
+    "OPEN_HAND": "GREEN_LED_ON",
+    "FIST": "GREEN_LED_OFF",
+    "THUMBS_UP": "SERVO_90",
+    "THUMBS_DOWN": "SERVO_0",
+    "VICTORY": "ALARM_RED_BUZZER"
+  }
+}
